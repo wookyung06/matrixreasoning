@@ -21,13 +21,14 @@ button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 .cell{width:40px;border:1.5px solid var(--ink);margin:0 -1.5px -1.5px 0;text-align:center}
 .cell b{display:block;border-bottom:1.5px solid var(--ink);line-height:24px}
 .bx{display:flex;height:32px;align-items:center;justify-content:center}
+.bx.revealed{background:var(--acc2);color:var(--acc)}
 .cur{background:var(--acc2);outline:2px solid var(--acc)}
 .pal{display:grid;grid-template-columns:repeat(3,76px);gap:6px;justify-content:center}.pal button{height:48px;padding:0}
 .rows{position:relative;max-height:300px;overflow:hidden;border:1.5px solid var(--ink);margin:10px 0}
 .row{display:flex;align-items:center;gap:8px;padding:6px 8px;border-bottom:1px solid var(--line)}
 .tg,.sg{display:flex;border:1.5px solid var(--ink);padding:3px;gap:4px}.sg{flex:1;justify-content:space-around}
 .row svg{width:clamp(20px,5.2vw,30px);height:clamp(20px,5.2vw,30px)}
-.yn{display:flex;gap:4px;font-size:12px}.yn span{border:1.5px solid var(--line);padding:2px 5px}.yn .pk{border-color:var(--ink);background:var(--acc2);font-weight:800}
+.yn{display:flex;gap:4px;font-size:12px}.yn span{border:1.5px solid var(--line);padding:2px 5px}.yn .pk{border-color:var(--ink);background:var(--acc2);font-weight:800}.yn .revealed{border-color:var(--acc);background:var(--acc2);font-weight:800}
 .msg{min-height:24px;text-align:center;font-size:14px}
 .cd{font-size:96px;text-align:center;padding:80px 0;font-weight:800}
 .big{font-size:60px;font-weight:800;line-height:1.2}

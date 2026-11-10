@@ -42,6 +42,18 @@ function view(){
   `<div class="rows" id="w">${g.items.map(rowH).join('')}</div><div class="msg" id="msg"></div><div class="btns"><button class="pri" data-a="ans" data-v="1">← 예</button><button class="pri" data-a="ans" data-v="0">아니오 →</button></div>`);
  mark();
 }
+function revealAnswers(){
+ const g=G;
+ if(!g.items||!['p','t'].includes(g.ph)){console.info('진행 중인 문항에서만 사용할 수 있습니다.');return}
+ g.items.forEach((item,i)=>{
+   const row=$('#e'+i);if(!row)return;
+    if(g.t=='c'){
+     const box=row.querySelector('.bx');box.innerHTML=svg(CS[keyOrd[item-1]],22);box.classList.add('revealed');
+    }else row.querySelectorAll('.yn span')[item.y?0:1].classList.add('revealed');
+ });
+ console.info('현재 라운드의 정답을 표시했습니다.');
+}
+window.revealAnswers=revealAnswers;
 function mark(){
  const e=$('#e'+G.i);if(!e)return;
  document.querySelectorAll('.cur').forEach(x=>x.classList.remove('cur'));
