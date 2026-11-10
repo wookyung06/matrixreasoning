@@ -5,6 +5,24 @@ const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=R(i+1);[a[i],a[
 const svg=(d,n=24)=>`<svg viewBox="0 0 24 24" width="${n}" height="${n}" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="${d}"/></svg>`;
 const CS=["M5 19H19M12 19V5","M5 19L12 5L19 19","M12 5V19M5 12H19","M5 5L19 19M19 5L5 19","M5 9H19M5 15H19","M18 5H7V19H18","M12 4L20 12L12 20L4 12Z","M5 19V13A7 7 0 0 1 19 13V19","M7 5V19M17 5V19"];
 const SP=["M4 4H20V20H4Z M4 4L20 20","M12 3L21 20H3Z M12 3V20","M19 5A9 9 0 1 0 19 19","M3 12H8L11 5L14 19L17 12H21","M4 20V4H20M4 12H14","M12 3V21M3 12H21M6 6L18 18","M4 8H20M4 16H20M8 4V20M16 4V20","M5 20L12 4L19 20M8 14H16","M4 4H16V12H8V20H20","M12 3A9 9 0 1 1 12 21A9 9 0 1 1 12 3M7 12H17","M4 12A8 8 0 0 1 20 12M4 12H20","M4 4H20L12 20Z","M4 12L12 4L20 12L12 20ZM12 4V20","M4 20H20M7 20V10M12 20V4M17 20V13","M18 5H8A3 3 0 0 0 8 11H16A3 3 0 0 1 16 17H6","M5 5H19V19H5Z M9 9H15V15H9Z","M4 4H20V20H4Z M20 4L4 20","M12 3L21 20H3Z M7.5 11.5H16.5","M5 5A9 9 0 1 1 5 19","M3 12H8L11 19L14 5L17 12H21","M4 4V20H20M4 12H14","M12 3V21M3 12H21M18 6L6 18","M4 8H20M4 16H20M8 4V20","M5 20L12 4L19 20M8 17H16","M20 4H8V12H16V20H4","M12 3A9 9 0 1 1 12 21A9 9 0 1 1 12 3M12 3V21","M4 12A8 8 0 0 0 20 12M4 12H20","M4 4H20L12 20Z M12 4V12","M4 12L12 4L20 12L12 20ZM4 12H20","M4 20H20M7 20V13M12 20V4M17 20V10","M6 5H16A3 3 0 0 1 16 11H8A3 3 0 0 0 8 17H18","M5 5H19V19H5Z M12 8A4 4 0 1 1 12 16A4 4 0 1 1 12 8"];
+SP.push(
+ "M5 4H19L22 12L19 20H5L2 12Z M5 12H19","M12 3L21 8V16L12 21L3 16V8Z M12 3V21",
+ "M12 3L21 9L18 20H6L3 9Z M7 12H17","M12 3L21 9L18 20H6L3 9Z M12 3V20",
+ "M6 4H18L21 20H3Z M12 4V20","M6 4H18L21 20H3Z M4 12H20",
+ "M4 5H20V19H4Z M4 5L20 19M20 5L4 19","M4 5H20V19H4Z M12 5V19M4 12H20",
+ "M12 3L20 7V17L12 21L4 17V7Z M8 9L16 15","M12 3L20 7V17L12 21L4 17V7Z M16 9L8 15",
+ "M4 4H20V20H4Z M8 8H16V16H8Z M4 12H8","M4 4H20V20H4Z M8 8H16V16H8Z M16 12H20",
+ "M3 7H21V17H3Z M3 7L12 13L21 7","M3 7H21V17H3Z M3 17L12 11L21 17",
+ "M5 4H19V20H5Z M9 4V20M15 4V20","M5 4H19V20H5Z M5 9H19M5 15H19",
+ "M12 3L20 12L12 21L4 12Z M8 12H16","M12 3L20 12L12 21L4 12Z M12 7V17",
+ "M4 4H20L16 20H8Z M8 12H16","M4 4H20L16 20H8Z M12 4L10 20",
+ "M4 5H20V19H4Z M7 9H17M7 15H17","M4 5H20V19H4Z M8 5V19M16 5V19",
+ "M5 4H19V20H5Z M5 4L19 20","M5 4H19V20H5Z M19 4L5 20",
+ "M12 3L21 20H3Z M8 15H16","M12 3L21 20H3Z M12 8V17",
+ "M4 6H20V18H4Z M8 6V18M16 6V18","M4 6H20V18H4Z M4 12H20",
+ "M4 4H20V20H4Z M12 4L4 20","M4 4H20V20H4Z M12 4L20 20",
+ "M6 4H18V20H6Z M6 9H18M6 15H18","M6 4H18V20H6Z M12 4V20"
+);
 const N={
  c:{n:'기호쓰기',e:'Coding',max:135,d:'위쪽 기호표에는 숫자 1부터 9까지 서로 다른 기호가 하나씩 짝지어져 있습니다. 아래 줄의 숫자마다 짝지어진 기호를 찾아 기호판에서 눌러 채우세요. 순서대로, 건너뛰지 말고, 빠르고 정확하게 하세요.',s:'연습 7칸 후 본 검사 135칸, 제한시간 120초. 점수는 맞게 채운 칸 수입니다.'},
  s:{n:'동형모형찾기',e:'Symbol Search',max:100,d:'왼쪽 목표 기호 2개 중 하나라도 오른쪽 5개 기호 안에 있으면 “예”, 하나도 없으면 “아니오”를 고르세요. 순서대로, 건너뛰지 말고, 빠르고 정확하게 하세요. 틀리면 점수가 깎이고, 비슷하게 생긴 도형이 섞여 있으니 모양을 정확히 비교해야 합니다.',s:'연습 3문항 후 본 검사 100문항, 제한시간 120초 안에 최대한 많이 풉니다. 점수는 맞은 수에서 틀린 수를 뺀 값입니다.'}
@@ -13,7 +31,51 @@ const best=k=>{try{return+localStorage.getItem((k=='s'?'ps2_':'ps_')+k)||0}catch
 const setBest=(k,v)=>{try{localStorage.setItem((k=='s'?'ps2_':'ps_')+k,v)}catch(e){}};
 let G={},T,keyOrd=shuf([...CS.keys()]),pal=shuf([...CS.keys()]);
 const mkDig=n=>{const a=[];let p=0;while(a.length<n){const d=1+R(9);if(d!=p)a.push(p=d)}return a};
-const mkSS=n=>shuf([...Array(n)].map((_,i)=>i<n/2)).map(y=>{const p=shuf([...Array(16).keys()]),v=()=>16*R(2),t=[p[0]+v(),p[1]+v()],s=shuf([(t[0]+16)%32,(t[1]+16)%32,p[2]+v(),p[3]+v(),p[4]+v()]);if(y)s[R(5)]=t[R(2)];return{t,s,y}});
+const SPPAIRS=[...Array.from({length:16},(_,i)=>[i,i+16]),...Array.from({length:16},(_,i)=>[i+32,i+48])];
+[
+ ["M7 3H17L21 7V17L17 21H7L3 17V7Z M7 12H17","M7 3H17L21 7V17L17 21H7L3 17V7Z M12 7V17"],
+ ["M12 3L21 9L18 20H6L3 9Z M12 8V17","M12 3L21 9L18 20H6L3 9Z M7 12H17"],
+ ["M7 4H20L17 20H4Z M8 12H18","M7 4H20L17 20H4Z M12 5L10 19"],
+ ["M3 11L12 3L21 11V20H3Z M9 20V13H15V20","M3 11L12 3L21 11V20H3Z M7 11H17M12 6V16"],
+ ["M4 5H20L14 12L20 19H4L10 12Z M10 12H14","M4 5H20L14 12L20 19H4L10 12Z M7 8H17M7 16H17"],
+ ["M12 3A9 9 0 1 1 12 21A9 9 0 1 1 12 3M6 6L18 18","M12 3A9 9 0 1 1 12 21A9 9 0 1 1 12 3M18 6L6 18"],
+ ["M4 12A8 8 0 1 0 20 12A8 8 0 1 0 4 12M4 12H20","M4 12A8 8 0 1 0 20 12A8 8 0 1 0 4 12M12 4V20"],
+ ["M4 20V12A8 8 0 0 1 20 12V20M4 16H20","M4 20V12A8 8 0 0 1 20 12V20M12 5V20"],
+ ["M12 3L14.5 9L21 9.5L16 14L17.5 21L12 17.5L6.5 21L8 14L3 9.5L9.5 9Z M7 12H17","M12 3L14.5 9L21 9.5L16 14L17.5 21L12 17.5L6.5 21L8 14L3 9.5L9.5 9Z M12 7V17"],
+ ["M12 3A9 9 0 1 1 12 21A9 9 0 1 1 12 3M7 7L17 17M17 7L7 17","M12 3A9 9 0 1 1 12 21A9 9 0 1 1 12 3M12 4V20M4 12H20"],
+ ["M5 20V11A7 7 0 0 1 19 11V20M5 15H19","M5 20V11A7 7 0 0 1 19 11V20M12 5V20"],
+ ["M4 5H20L17 19H7Z M7 9L17 15","M4 5H20L17 19H7Z M17 9L7 15"],
+ ["M12 3L21 12L12 21L3 12Z M6 12L12 6L18 12","M12 3L21 12L12 21L3 12Z M12 6V18"],
+ ["M5 4H19V20H5Z M5 4L19 20M19 4L5 20","M5 4H19V20H5Z M12 4V20M5 12H19"],
+ ["M4 6L12 3L20 6V18L12 21L4 18Z M4 12L12 9L20 12","M4 6L12 3L20 6V18L12 21L4 18Z M12 3V21"],
+ ["M4 4H20V20H4Z M7 8H17V12H7ZM7 16H17","M4 4H20V20H4Z M8 7V17M12 7V17M16 7V17"],
+ ["M4 6A4 4 0 0 1 12 6A4 4 0 0 1 20 6V18H4Z M4 12H20","M4 6A4 4 0 0 1 12 6A4 4 0 0 1 20 6V18H4Z M8 8V18M16 8V18"],
+ ["M4 4H20L17 20H7Z M4 12L20 12M8 5L16 19","M4 4H20L17 20H7Z M12 4L12 20M6 9L18 15"],
+ ["M12 3L21 20H3Z M7 16L17 9","M12 3L21 20H3Z M7 9L17 16"],
+ ["M4 4H20V20H4Z M4 10H13V20M13 4V10H20","M4 4H20V20H4Z M4 8H16V20M8 4V16H20"],
+ ["M4 12A4 4 0 1 1 12 12A4 4 0 1 1 4 12M12 12A4 4 0 1 1 20 12A4 4 0 1 1 12 12","M4 12A4 4 0 1 1 12 12A4 4 0 1 1 4 12M12 12V8A4 4 0 1 1 20 12A4 4 0 1 1 12 12"],
+ ["M4 5H20V19H4Z M4 5L20 19M4 19L20 5M12 5V19","M4 5H20V19H4Z M4 12H20M8 5V19M16 5V19"],
+ ["M3 8L8 4L12 8L16 4L21 8V20H3Z M3 13H21","M3 8L8 4L12 8L16 4L21 8V20H3Z M8 9V20M16 9V20"],
+ ["M4 4H20V20H4Z M4 4L20 20M12 4V20","M4 4H20V20H4Z M20 4L4 20M4 12H20"],
+ ["M12 3L20 8V16L12 21L4 16V8Z M4 8L20 16","M12 3L20 8V16L12 21L4 16V8Z M20 8L4 16"],
+ ["M4 4H20V20H4Z M7 7H17V17H7Z M7 12H17","M4 4H20V20H4Z M7 7H17V17H7Z M12 7V17"],
+ ["M5 4H19V20H5Z M5 4L12 12L19 4M12 12V20","M5 4H19V20H5Z M5 20L12 12L19 20M12 4V12"],
+ ["M4 7H20V17H4Z M4 7L12 12L20 7M8 17V12","M4 7H20V17H4Z M4 17L12 12L20 17M16 7V12"],
+ ["M12 3L21 12L12 21L3 12Z M3 12H12V3","M12 3L21 12L12 21L3 12Z M12 21V12H21"],
+ ["M5 4H19V20H5Z M5 9H19M5 15H19M9 4V20","M5 4H19V20H5Z M5 9H19M5 15H19M15 4V20"],
+ ["M4 20V4H20V20M4 12H14L20 6","M4 20V4H20V20M4 12H14L20 18"],
+ ["M4 4H20V20H4Z M4 10H20M4 15H14","M4 4H20V20H4Z M4 10H20M10 10V20"]
+].forEach(pair=>{SPPAIRS.push([SP.length,SP.length+1]);SP.push(...pair)});
+const mkSS=n=>{
+ const seen=new Set(),items=[],yesCount=Math.floor(n/2);
+ while(items.length<n){
+  const y=items.length<yesCount,ids=shuf([...SPPAIRS.keys()]),choose=id=>{const pair=SPPAIRS[id],i=R(2);return{shown:pair[i],alt:pair[1-i]}},targets=ids.slice(0,2).map(choose),t=targets.map(x=>x.shown),s=shuf([targets[0].alt,targets[1].alt,...ids.slice(2,5).map(id=>SPPAIRS[id][R(2)])]);
+  if(y)s[R(5)]=t[R(2)];
+  const signature=`${t.join(',')}|${s.join(',')}|${y}`;
+  if(!seen.has(signature)){seen.add(signature);items.push({t,s,y})}
+ }
+ return shuf(items);
+};
 const keyH=()=>`<div class="key">${keyOrd.map((s,d)=>`<div><b>${d+1}</b><span>${svg(CS[s])}</span></div>`).join('')}</div>`;
 const rowH=(it,i)=>`<div class="row" id="e${i}"><div class="tg">${it.t.map(s=>svg(SP[s])).join('')}</div><div class="sg">${it.s.map(s=>svg(SP[s])).join('')}</div><div class="yn"><span>예</span><span>아니오</span></div></div>`;
 
@@ -46,7 +108,7 @@ function revealAnswers(){
  const g=G;
  if(!g.items||!['p','t'].includes(g.ph)){console.info('진행 중인 문항에서만 사용할 수 있습니다.');return}
  g.items.forEach((item,i)=>{
-   const row=$('#e'+i);if(!row)return;
+    const row=$('#e'+i);if(!row)return;
     if(g.t=='c'){
      const box=row.querySelector('.bx');box.innerHTML=svg(CS[keyOrd[item-1]],22);box.classList.add('revealed');
     }else row.querySelectorAll('.yn span')[item.y?0:1].classList.add('revealed');
